@@ -1,0 +1,25 @@
+# .air.toml
+
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  # Using backslashes for consistency on Windows
+  cmd = "go build -o .\\tmp\\main.exe ."
+  bin = "tmp\\main.exe"
+  full_bin = ".\\tmp\\main.exe"
+  include_ext = ["go"]
+  exclude_dir = ["assets", "vendor", "tmp", ".git"]
+
+[runner]
+  # Explicitly using cmd.exe to run the binary
+  cmd = "cmd /c .\\tmp\\main.exe"
+
+[log]
+  time = true
+
+[color]
+  main = "yellow"
+  watcher = "cyan"
+  build = "green"
+  runner = "magenta"
